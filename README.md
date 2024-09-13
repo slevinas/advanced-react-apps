@@ -3,6 +3,7 @@ Useful Resources for Part 3
 Here are some high-quality resources that you might find helpful while studying this Part 3. (The list follows the order of sections in this part)
 
 These resources are 100% optional, but might give you additional insights or provide ever deeper dives into some topics.
+[👉 Tao of React - Software Design, Architecture & Best Practices](https://alexkondov.com/tao-of-react/?ref=jonas.io)
 
 👉 Tao of React - Software Design, Architecture & Best Practices
 
