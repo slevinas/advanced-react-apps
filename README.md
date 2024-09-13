@@ -3,80 +3,46 @@ Useful Resources for Part 3
 Here are some high-quality resources that you might find helpful while studying this Part 3. (The list follows the order of sections in this part)
 
 These resources are 100% optional, but might give you additional insights or provide ever deeper dives into some topics.
+
 [👉 Tao of React - Software Design, Architecture & Best Practices](https://alexkondov.com/tao-of-react/?ref=jonas.io)
 
-👉 Tao of React - Software Design, Architecture & Best Practices
 
-👉 The new wave of React state management (Excellent read!)
+[👉 The new wave of React state management (Excellent read!)](https://frontendmastery.com/posts/the-new-wave-of-react-state-management/?ref=jonas.io)
 
-👉 A Visual Guide to React Rendering - useMemo
+[👉 A Visual Guide to React Rendering - useMemo](https://alexsidorenko.com/blog/react-render-usememo/?ref=jonas.io)
 
-👉 React as a UI Runtime (By Dan Abramov from the React team)
+[👉 React as a UI Runtime (By Dan Abramov from the React team)](https://overreacted.io/react-as-a-ui-runtime/?ref=jonas.io)
 
-👉 You Might Not Need an Effect (Official React docs)
+[👉 You Might Not Need an Effect (Official React docs)](https://react.dev/learn/you-might-not-need-an-effect?ref=jonas.io)
 
-👉 A Complete Guide to useEffect (By Dan Abramov)
+[👉 A Complete Guide to useEffect (By Dan Abramov)](https://overreacted.io/a-complete-guide-to-useeffect/?ref=jonas.io)
 
-👉 useEffect sometimes fires before paint
+[👉 useEffect sometimes fires before paint](https://thoughtspile.github.io/2021/11/15/unintentional-layout-effect/)
 
-👉 Making setInterval Declarative with React Hooks (By Dan Abramov)
+[👉 Making setInterval Declarative with React Hooks (By Dan Abramov)](https://overreacted.io/making-setinterval-declarative-with-react-hooks/?ref=jonas.io)
 
-👉 Redux - Not Dead Yet! (By Mark Erikson from the Redux team)
+[👉 Redux - Not Dead Yet! (By Mark Erikson from the Redux team)](https://blog.isquaredsoftware.com/2018/03/redux-not-dead-yet/?ref=jonas.io)
 
-👉 Why React Context is Not a "State Management" Tool (By Mark Erikson)
+[👉 Why React Context is Not a "State Management" Tool (By Mark Erikson)](https://blog.isquaredsoftware.com/2021/01/context-redux-differences/)
 
 
 
 Library documentation:
 
-👉 Vite (Why Vite is so fast)
+[👉 Vite (Why Vite is so fast)](https://vitejs.dev/guide/why.html)
 
-👉 CSS Modules
+[👉 CSS Modules](https://github.com/css-modules/css-modules)
 
-👉 React Router
+[👉 React Router](https://reactrouter.com/en/main?ref=jonas.io)
 
-👉 React Leaflet: Installation
+[👉 React Leaflet: Installation](https://react-leaflet.js.org/docs/start-installation/?ref=jonas.io)
 
-👉 Redux: Style Guide (A must-read for Redux users!)
+[👉 Redux: Style Guide (A must-read for Redux users!)](https://redux.js.org/style-guide/?ref=jonas.io)
 
-👉 Redux Toolkit
+[👉 Redux Toolkit](https://redux-toolkit.js.org/tutorials/overview?ref=jonas.io)
 
-👉 React Redux
+[👉 React Redux](https://react-redux.js.org/api/hooks?ref=jonas.io)
 
 
 
 I will try to keep this list updated over time. If you have additional suggestions, please add them to the Q&A of this lecture.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
