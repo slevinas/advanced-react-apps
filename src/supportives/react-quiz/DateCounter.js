@@ -6,11 +6,15 @@ function reducer(state, action) {
   */
   switch (action.type) {
     case "inc":
-      return {...state, count: state.count };
+      return {...state, count: state.count + state.step};
     case "dec":
-      return {...state, count: state.count - 1};
-    case "set":
+      return {...state, count: state.count - state.step};
+    case "setCount":
       return {...state, count: action.payload};
+    case "setStep":
+      return {...state, step: action.payload};
+    case "reset":
+      return {count: 0, step: 1};
     default:
       throw new Error("Invalid action type");
       
@@ -48,7 +52,7 @@ function DateCounter() {
     // setCount(Number(e.target.value));
     const value = Number(e.target.value);
     if (!isNaN(value)) {
-      dispatch({ type: "set", payload: value });
+      dispatch({ type: "setCount", payload: value });
     }
 
   };
@@ -63,7 +67,8 @@ function DateCounter() {
 
   const reset = function () {
     // setCount(0);
-    setStep(1);
+    // setStep(1);
+    dispatch({type: "reset"});
   };
 
   return (
