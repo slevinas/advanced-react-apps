@@ -64,7 +64,7 @@ import react from '@vitejs/plugin-react'
 
 import { defineConfig } from 'vite' 
 
-_import eslint from "vite-plugin-eslint"_
+<p style="color: blue;">_import eslint from "vite-plugin-eslint"_</p>
 
 
 export default defineConfig({
@@ -72,4 +72,3 @@ export default defineConfig({
 })
 
 ```
- 
