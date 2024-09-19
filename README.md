@@ -74,3 +74,4 @@ export default defineConfig({
 })
 
 ```
+<p style="color: red;">pnpm create vite@4 worldwise</p>
