@@ -60,12 +60,13 @@ Done. Now run:
 5. in vite.config.js //
 
 ```
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react' 
+
 import { defineConfig } from 'vite' 
 
 _import eslint from "vite-plugin-eslint"_
 
-// https://vitejs.dev/config/
+
 export default defineConfig({
   plugins: [react(), _eslint()_],
 })
