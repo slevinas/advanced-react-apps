@@ -61,7 +61,8 @@ Done. Now run:
 
 ```
 import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite' 
+
 _import eslint from "vite-plugin-eslint"_
 
 // https://vitejs.dev/config/
