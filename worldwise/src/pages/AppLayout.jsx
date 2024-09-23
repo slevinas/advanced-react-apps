@@ -1,16 +1,20 @@
 // import { Link } from "react-router-dom"
 import { AppNav } from "../components/AppNav"
+import Map from '../components/Map'
 import { PageNav } from "../components/PageNav"
+import { Sidebar } from "../components/Sidebar"
+import styles from './AppLayout.module.css'
 
 function AppLayout() {
   
   
   return (
     
-      <div>
+      <div className={styles.app}>
        
-      <AppNav />
-      <p>App</p>
+     <Sidebar />
+
+     <Map />
        
       </div>
     
