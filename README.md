@@ -74,4 +74,8 @@ export default defineConfig({
 })
 
 ```
-<p style="color: red;">pnpm create vite@4 worldwise</p>
+5. #### Installing react-router-dom@6
+
+```
+$ pnpm i react-router-dom@6
+```
