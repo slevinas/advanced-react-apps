@@ -72,9 +72,7 @@ export default function App() {
 
   const totalPoints = questions.reduce((acc, question) => acc + question.points, 0);
 
-  function handleStartQuiz () {
-    dispatch({type: "startQuiz"});
-  };
+ 
   
 
   useEffect(function () {
@@ -82,7 +80,7 @@ export default function App() {
     .then((res)=>res.json())
     .then((data)=> dispatch({type: "dataReceived", payload: data}))
     .catch((err)=> dispatch({type: "dataFailed"}));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
@@ -91,43 +89,43 @@ export default function App() {
       <Main>
         {status === "error" && <Error />}
         {status === "loading" && <Loader />}
-        {status === "ready" && 
-        <StartScreen
+        {status === "ready" && ( <StartScreen
           numQuestions={numQuestions}
           dispatch={dispatch}
-        />}
-        {status === "active" && 
-        <>
-        <Progress
-          tot={totalPoints}
-          index={index}
-          numQuestions={numQuestions}
-          points={points}
-          answer={answer}
-        />
-        <Question
-          question={questions[index]}
-          dispatch={dispatch}
-          answer={answer}
-          
-        />
-        <Footer>
-          <Timer 
-            dispatch={dispatch}
-            secondsRemaining={secondsRemaining}/>
-
-        <NextButton
-          answer={answer}
-          dispatch={dispatch}
-          index={index}
-          numQuestions={numQuestions}
-        />
-
-        </Footer>
+        />)}
        
-        </>
-        
-        }
+        {status === "active" && (
+           <>
+           <Progress
+             index={index}
+             numQuestions={numQuestions}
+             points={points}
+             maxPossiblePoints={totalPoints}
+             answer={answer}
+           />
+           <Question
+             question={questions[index]}
+             dispatch={dispatch}
+             answer={answer}
+             
+           />
+           <Footer>
+             <Timer 
+               dispatch={dispatch}
+               secondsRemaining={secondsRemaining}
+             />
+             <NextButton
+               answer={answer}
+               dispatch={dispatch}
+               index={index}
+               numQuestions={numQuestions}
+             />
+   
+           </Footer>
+          
+           </>
+        )}
+       
 
         {status === "finished" && (
           <FinishScreen dispatch={dispatch} points={points} tot={totalPoints} 

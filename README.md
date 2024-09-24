@@ -21,8 +21,9 @@ $ pnpm i json-server
 - adding script to package.json
 
 "scripts":{
-  "server": "json-server --watch data/cities.json --port 8000 -dela;y 500"
+  "server": "json-server --watch data/cities.json --port 8000 --delay 500"
 },
+// the --delay 500 is to sumulate network requests .
 
 ```
 

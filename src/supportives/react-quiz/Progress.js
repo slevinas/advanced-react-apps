@@ -1,4 +1,4 @@
-export  function Progress({index, numQuestions, points, tot, answer}) {
+export  function Progress({index, numQuestions, points, maxPossiblePoints, answer}) {
   return (
     <header className='progress'>
       <progress value={index + Number(answer !== null)} max={numQuestions}></progress>
@@ -8,7 +8,7 @@ export  function Progress({index, numQuestions, points, tot, answer}) {
           <strong>{numQuestions}</strong> 
         </p>
         <p>
-          Points: <strong> {points}</strong>/ <strong>{tot}</strong> 
+          Points: <strong> {points}</strong>/ <strong>{maxPossiblePoints}</strong> 
         </p>
         
      
