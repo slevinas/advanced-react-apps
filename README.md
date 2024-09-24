@@ -7,7 +7,8 @@
 
 ## Instructions
 
-1. 
+1. Installing dependencies listed in package.json.
+
 ```
 $ pnpm i 
  
