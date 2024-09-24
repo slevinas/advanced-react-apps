@@ -1,6 +1,6 @@
 # The React Quiz App
 
-[screenshoot](./public/the-react-quiz.png)
+![screenshoot](./public/the-react-quiz.png)
 
 
 ## How to run this App:
