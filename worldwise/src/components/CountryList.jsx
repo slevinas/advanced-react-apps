@@ -7,14 +7,17 @@ import Spinner from './Spinner'
 
 export default function CountryList({cities, isLoading}) {
 
-  const countries = cities.reduce((acc, city) => {
-    if (!acc.includes(city.country)) {
-      acc.push(city.country)
+  const countries = cities.reduce((arr, city) => {
+    if (!arr.map((el) => el.country).includes(city.country)) {
+      return [...arr, {country: city.country, emoji: city.emoji}]
     }
-    return acc
+    else {
+    return arr
+    }
   }
+  // this code checks if the country is already in the array, if it is, it returns the array as is, if it isn't, it adds the country to the array 
   , [])
-
+console.log(countries);
 
   if (isLoading) {
     return (<Spinner />)    
@@ -26,7 +29,7 @@ export default function CountryList({cities, isLoading}) {
   return (
     <ul className={styles.countriesList}>
       {countries.map((country) => (
-        <CountryItem key={country} country={country} />
+        <CountryItem  country={country} />
       ))}
     </ul>
   )
