@@ -9,7 +9,7 @@ export default function CountryList({cities, isLoading}) {
 
   const countries = cities.reduce((arr, city) => {
     if (!arr.map((el) => el.country).includes(city.country)) {
-      return [...arr, {country: city.country, emoji: city.emoji}]
+      return [...arr, {country: city.country, emoji: city.emoji,id: city.id}]
     }
     else {
     return arr
@@ -18,6 +18,8 @@ export default function CountryList({cities, isLoading}) {
   // this code checks if the country is already in the array, if it is, it returns the array as is, if it isn't, it adds the country to the array 
   , [])
 console.log(countries);
+console.log('cities', cities
+);
 
   if (isLoading) {
     return (<Spinner />)    
@@ -29,7 +31,7 @@ console.log(countries);
   return (
     <ul className={styles.countriesList}>
       {countries.map((country) => (
-        <CountryItem  country={country} />
+        <CountryItem  country={country} key={country.id} />
       ))}
     </ul>
   )
