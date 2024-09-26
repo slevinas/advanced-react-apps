@@ -1,10 +1,16 @@
+import { useCities } from '../contexts/CitiesProvider'
+
 import CityItem from './CityItem'
 import styles from './CityList.module.css'
 import Message from './Message'
 import Spinner from './Spinner'
 
 
-function CityList({cities, isLoading}) {
+function CityList() {
+  const { cities, isLoading } = useCities()
+
+  console.log('cities', cities);
+
   if (isLoading) {
     return (<Spinner />)    
   }

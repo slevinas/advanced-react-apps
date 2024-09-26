@@ -12,7 +12,7 @@ const formatDate = (date) =>
 
   export default function CityItem({city}) {
   const {cityName,emoji,date, id, position} = city
-  console.log(formatDate(date));
+  // console.log(formatDate(date));
 
   return (
     <li >
@@ -20,7 +20,7 @@ const formatDate = (date) =>
       <span className={styles.emoji}>{emoji}</span>
       <h3 className={styles.name}>{cityName}</h3>
       <time className={styles.date} >({formatDate(date)})</time>
-      <button className={styles.deletBtn}>
+      <button className={styles.deleteBtn}>
         &times;
       </button>
       </Link>
