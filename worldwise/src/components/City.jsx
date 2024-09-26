@@ -1,7 +1,9 @@
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { CitiesProvider, useCities } from "../contexts/CitiesProvider"
+import { useCities } from "../contexts/CitiesProvider"
+import BackButton from "./BackButton"
 import styles from "./City.module.css"
+import Spinner from "./Spinner"
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -13,15 +15,17 @@ const formatDate = (date) =>
 
 function City() {
   const {id} = useParams();
-  const {getCity, currentCity} = useCities();
-
+  const {getCity, currentCity, isLoading} = useCities();
+  // onMount grab the id from the url and get the city
   useEffect(function() {
     getCity(id)
   }, [id])
 
   const { cityName, emoji, date, notes } = currentCity;
 
- 
+  if (isLoading) {
+    return (<Spinner />)
+  }
 
 
   return (
@@ -56,9 +60,9 @@ function City() {
         </a>
       </div>
 
-      {/* <div>
-        <ButtonBack />
-      </div> */}
+      <div>
+        <BackButton />
+      </div>
     </div>
   );
 }

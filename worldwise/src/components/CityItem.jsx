@@ -1,5 +1,8 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useCities } from '../contexts/CitiesProvider'
 import styles from './CityItem.module.css'
+
+
 
 const formatDate = (date) => 
   new Intl.DateTimeFormat('en', {
@@ -11,12 +14,20 @@ const formatDate = (date) =>
 
 
   export default function CityItem({city}) {
-  const {cityName,emoji,date, id, position} = city
-  // console.log(formatDate(date));
+    const {currentCity} = useCities()
+    const {cityName,emoji,date, id, position} = city
+    // if the currentCity id is the same as the id of the city, then the city is selected
+    const isSelected = currentCity.id === id
+  
 
   return (
     <li >
-      <Link to={`${id}?lat=${position.lat}&lng=${position.lng}`} className={styles.cityItem}>
+      <Link
+        className={`${styles.cityItem} ${isSelected ? 
+          styles['cityItem--active'] : ''
+        }`}
+        to={`${id}?lat=${position.lat}&lng=${position.lng}`}
+      >
       <span className={styles.emoji}>{emoji}</span>
       <h3 className={styles.name}>{cityName}</h3>
       <time className={styles.date} >({formatDate(date)})</time>
