@@ -59,11 +59,36 @@ function CitiesProvider({children}) {
         const data = await response.json()
         setCities((cities) => [...cities, data])
         } catch (error) {
-          alert(`There was an error: ${error.message}`)
+          alert(`There was an error Adding a city: ${error.message}`)
         } finally {
           setIsLoading(false)
         }     
       }
+
+      // async function deleteCity(id) 
+      async function deleteCity(id) {
+        // console.log('from deleteCity', id);
+        try {
+          setIsLoading(true)
+          // Dlete the city from the server (backend API)
+         await fetch(`${BASE_URL}/cities/${id}`,
+          {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+          });
+          
+      
+          // Remove the city from the local state. keeping Remote and local state in sync.
+          setCities((cities) => cities.filter(city => city.id !== id))
+          } catch (error) {
+            alert(`There was an error deleting a city... ${error.message}`)
+          } finally {
+            setIsLoading(false)
+          }
+      }
+      
   
   return (
     <CitiesContext.Provider value={
@@ -74,6 +99,7 @@ function CitiesProvider({children}) {
         getCity,
         currentCity,
         addCity,
+        deleteCity
         
       }
       }>

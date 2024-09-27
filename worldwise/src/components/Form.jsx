@@ -82,7 +82,7 @@ function Form() {
           
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (!cityName || !country || !date) {
       return;      
@@ -103,7 +103,7 @@ function Form() {
       position: { lat, lng },
     };
     console.log(newCity);
-    addCity(newCity);
+    await addCity(newCity);
     navigate("/app/cities");
   }
 
