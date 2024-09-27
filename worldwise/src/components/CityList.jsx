@@ -9,6 +9,11 @@ import Spinner from './Spinner'
 function CityList() {
   const { cities, isLoading } = useCities()
 
+  // onMount
+  // useEffect(function(){
+
+  // }, [cities])
+
   console.log('cities', cities);
 
   if (isLoading) {

@@ -116,3 +116,9 @@ _Note_ .
 - useQueryParams
 - useGeolocation
 - useUrlPosition (grabs the lat/lng query params fro the url)
+
+7. Installing react-datepicker:
+```
+pnpm i react-datepicker
+
+```
