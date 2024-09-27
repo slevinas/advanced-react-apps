@@ -93,7 +93,7 @@ $ pnpm i react-router-dom@6
 
 6. #### Adding json-server to fake API.
 
-``
+```
 $ pnpm i json-server
 
 - adding script to package.json
@@ -101,7 +101,18 @@ $ pnpm i json-server
 "scripts":{
   "server": "json-server --watch data/cities.json --port 8000 -dela;y 500"
 },
+
 ```
+
 this script is to simulate fetching from an API so we added a half a sec delay to mimik real network request.
 
-_Note_ . #### had to downgrade json-server for "^0.17.3" and not use the latest becausee of the --delay and --route options that do not exists on the latest version.
+_Note_ . 
+ #### had to downgrade json-server for "^0.17.3" and not use the latest becausee of the --delay and --route options that do not exists on the latest version.
+
+
+
+
+#### Creating Custom hooks: 
+- useQueryParams
+- useGeolocation
+- useUrlPosition (grabs the lat/lng query params fro the url)

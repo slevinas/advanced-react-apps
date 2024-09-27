@@ -77,8 +77,21 @@ function Form() {
           
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    const newCity = {
+      cityName,
+      country,
+      date,
+      notes,
+      emoji,
+    };
+    console.log(newCity);
+    // navigate("/");
+  }
+
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
