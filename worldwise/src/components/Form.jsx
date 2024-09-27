@@ -31,6 +31,9 @@ function Form() {
   const GEO_CODING_API = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
   useEffect(function(){
+    if (!lat || !lng) {
+      return;
+    }
     async function fetchCityData(){
       try {
         setIsLoadingGeocoding(true)
@@ -61,6 +64,11 @@ function Form() {
 
   if (isLoadingGeocoding) {
     return <Spinner />;
+    
+  }
+
+  if (!lat || !lng) {
+    return <Message message="Start by clicking somewhere on the map" />;
     
   }
 
