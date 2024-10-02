@@ -1,0 +1,12 @@
+export { Error } from "./Error"
+export { FinishScreen } from "./FinishScreen"
+export { Footer } from "./Footer"
+export { Header } from "./Header"
+export { Loader } from "./Loader"
+export { Main } from "./Main"
+export { NextButton } from "./NextButton"
+export { Progress } from "./Progress"
+export { Question } from "./Question"
+export { StartScreen } from "./StartScreen"
+export { Timer } from "./Timer"
+
