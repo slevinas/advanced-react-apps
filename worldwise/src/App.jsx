@@ -4,7 +4,8 @@ import City from './components/City'
 import CityList from './components/CityList'
 import CountryList from './components/CountryList'
 import Form from './components/Form'
-import { CitiesProvider } from './contexts/CitiesProvider'
+import { CitiesProvider } from './contexts/CitiesContext'
+import { AuthProvider } from './contexts/FakeAuthContext'
 import AppLayout from './pages/AppLayout'
 import Homepage from './pages/Homepage'
 import Login from './pages/Login'
@@ -19,7 +20,8 @@ function App() {
  
   
   return (
-    <CitiesProvider>
+    <AuthProvider>
+      <CitiesProvider>
       <BrowserRouter>
         <Routes>
           <Route index element={<Homepage />} />
@@ -38,6 +40,7 @@ function App() {
         </Routes> 
       </BrowserRouter>
     </CitiesProvider>
+      </AuthProvider>
      
     
   )

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import { useNavigate } from "react-router-dom"
-import { useCities } from "../contexts/CitiesProvider"
+import { useCities } from "../contexts/CitiesContext"
 import { useUrlPosition } from "../hooks/useUrlPosition"
 import BackButton from "./BackButton"
 import Button from "./Button"
@@ -22,6 +22,7 @@ export function convertToEmoji(countryCode) {
 
 function Form() {
   const {lat, lng} = useUrlPosition()
+  const {addCity, isLoading, cities } = useCities()
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false)
   const navigate = useNavigate();
   const [cityName, setCityName] = useState("");
@@ -31,12 +32,11 @@ function Form() {
   const [emoji, setEmoji] = useState("");
   const [geocodingError, setGeocodingError] = useState("")
 
-  const {addCity, isLoading, cities } = useCities()
 
   const GEO_CODING_API = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
   useEffect(function(){
-    if (!lat || !lng) {
+    if (!lat && !lng) {
       return;
     }
     async function fetchCityData(){
@@ -49,7 +49,7 @@ function Form() {
           throw new Error("That doesn't look like a city!. try clicking some where on the map");          
         }
 
-        console.log('from form fetchCityData', data);
+        console.log('from FForm fetchCityData', data);
         const {city, countryName, countryCode} = data
         // console.log(city, countryName);
         setCityName(city || "Unknown city")
@@ -72,7 +72,7 @@ function Form() {
     
   }
 
-  if (!lat || !lng) {
+  if (!lat && !lng) {
     return <Message message="Start by clicking somewhere on the map" />;
     
   }
@@ -83,12 +83,15 @@ function Form() {
   }
 
   async function handleSubmit(e) {
+    console.log('Form->from handleSubmit');
     e.preventDefault();
-    if (!cityName || !country || !date) {
+    if (!cityName  || !date) {
       return;      
     }
     // check if the city already exists
+
     const cityExists = cities.some(city => city.cityName === cityName)
+    console.log(`the city ${cityName} exists`, cityExists);
     if (cityExists) {
       alert(`You've already added ${cityName}`)
       return;

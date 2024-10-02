@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents } from 'react-leaflet'
 import { useNavigate } from 'react-router-dom'
-import { useCities } from '../contexts/CitiesProvider'
+import { useCities } from '../contexts/CitiesContext'
 import { useGeolocation } from '../hooks/useGeolocation'
 import { useUrlPosition } from '../hooks/useUrlPosition'
 import Button from './Button'

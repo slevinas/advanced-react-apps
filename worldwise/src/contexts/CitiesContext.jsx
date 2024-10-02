@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer, useState } from 'react'
+import { createContext, useContext, useEffect, useReducer } from 'react'
 
 
 const BASE_URL = 'http://localhost:8000'
@@ -33,14 +33,17 @@ function reducer(state, action) {
         error: action.payload
       }
     case 'cities/add':
+      console.log('from reducer cities/add was called');
       return {
         ...state,
         isLoading: false,
-        cities: [...state.cities, action.payload]
+        cities: [...state.cities, action.payload], 
+        currentCity: action.payload
       }
     case 'currentCity/selected':
       return {
         ...state,
+        isLoading: false,
         currentCity: action.payload
       }
    
@@ -48,7 +51,8 @@ function reducer(state, action) {
       return {
         ...state,
         isLoading: false,
-        cities: state.cities.filter(city => city.id !== action.payload)
+        cities: state.cities.filter(city => city.id !== action.payload),
+        currentCity: {}
       }
     default:
       throw new Error("Unkown action type");
@@ -85,7 +89,7 @@ function CitiesProvider({children}) {
       
      
     }
-    fetchCities()
+     fetchCities()
   }, []) ;
 
 
@@ -97,7 +101,7 @@ function CitiesProvider({children}) {
       const response = await fetch(`${BASE_URL}/cities/${id}`)
       const data = await response.json()
       // setCurrentCity(data)
-      dispatch({type: 'cities/add', payload: data})
+      dispatch({type: 'currentCity/selected', payload: data})
       } catch (error) {
         alert(`There was an error: ${error.message}`)
         dispatch({type: 'cities/error', payload: error.message})
@@ -156,7 +160,8 @@ function CitiesProvider({children}) {
   return (
     <CitiesContext.Provider value={
       {
-        cities, isLoading,
+        cities,
+        isLoading,
         getCity,
         currentCity,
         addCity,

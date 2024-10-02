@@ -1,0 +1,20 @@
+{
+  "/api/cities": "fakeapis.cities",
+  "/api/cities/:id": {
+    "GET": {
+      "action": "fakeapis.cities.find(data => data.id == :id)"
+    },
+    "PUT": {
+      "action": "fakeapis.cities.update(req.body)"
+    }
+  },
+  "/api/users": "fakeapis.users",
+  "/api/users/:id": {
+    "GET": {
+      "action": "fakeapis.users.find(data => data.id === :id)"
+    },
+    "PUT": {
+      "action": "fakeapis.users.update(req.body)"
+    }
+  }
+}

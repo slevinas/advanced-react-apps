@@ -1,4 +1,4 @@
-import { useCities } from '../contexts/CitiesProvider'
+import { useCities } from '../contexts/CitiesContext'
 
 import CityItem from './CityItem'
 import styles from './CityList.module.css'
@@ -25,8 +25,8 @@ function CityList() {
 
   return (
     <ul className={styles.cityList}>
-      {cities.map(city => (
-       <CityItem key={city.cityName} city={city} />
+      {cities.map((city) => (
+       <CityItem key={city.id} city={city} />
       ))}
     </ul>
   )
