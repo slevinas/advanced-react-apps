@@ -1,4 +1,10 @@
-export  function StartScreen({numQuestions, dispatch}) {
+import { useQuiz } from "../contexts/QuizContext"
+
+export  function StartScreen() {
+
+  const {questions,dispatch} = useQuiz();
+
+  const numQuestions = questions.length;
  
 
   return (

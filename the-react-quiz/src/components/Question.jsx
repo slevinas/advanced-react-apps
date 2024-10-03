@@ -1,18 +1,26 @@
-export function Question({question, dispatch, answer}) {
+import { useQuiz } from "../contexts/QuizContext"
+
+export function Question() {
+  const {questions, index} = useQuiz();
+
+  const question = questions[index];
+  // console.log('question',question);
+
   return (
-    <div >
+    < >
      
       <h4>
-        {question.question}
+       {question.question}
       </h4>
-      <Options question={question} dispatch={dispatch} answer={answer} />
+      <Options question={question}  />
      
-    </div>
+    </>
   );
   
 }
 
-export function Options({question, dispatch, answer}) {
+export function Options({question}) {
+  const {answer, dispatch} = useQuiz();
 
   const hasAnswered = answer !== null;
 

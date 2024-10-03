@@ -1,4 +1,10 @@
-export function FinishScreen({ dispatch, points, tot, highscore }) {
+import { useQuiz } from "../contexts/QuizContext"
+
+
+export function FinishScreen() {
+
+  const {questions, dispatch, points, highscore } = useQuiz();
+  const tot = questions.reduce((acc, question) => acc + question.points, 0);
   // this is the percentage of the total points
   // rounded to 2 decimal places
   const percentage = Math.round(((points / tot) * 100)*100) / 100;
