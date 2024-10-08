@@ -19,7 +19,7 @@ function City() {
   // onMount grab the id from the url and get the city
   useEffect(function() {
     getCity(id)
-  }, [id])
+  }, [id, getCity])
 
   const { cityName, emoji, date, notes } = currentCity;
 
