@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 # supporting files
 starter/*
+worldwise/pnpm-lock.yaml
