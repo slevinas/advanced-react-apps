@@ -10,35 +10,54 @@ function Calculator({ workouts, allowSound }) {
 
   // const duration = (number * sets * speed) / 60 + (sets - 1) * durationBreak;
 
-  const playSound = useCallback(
-    function () {
-    if (!allowSound) return;
+  // const playSound = useCallback(
+  //   function () {
+  //   if (!allowSound) return;
    
-    const sound = new Audio(clickSound);
-    sound.play();
-  },[allowSound]);
+  //   const sound = new Audio(clickSound);
+  //   sound.play();
+  // },[allowSound]);
 
 
+  // useEffect(
+  //   function (){
+  //     setDuration(
+  //       (number * sets * speed) / 60 + (sets - 1) * durationBreak);
+  //       playSound();
+  //   },
+  //   [number, sets, speed, durationBreak, playSound]
+  // );
   useEffect(
     function (){
       setDuration(
         (number * sets * speed) / 60 + (sets - 1) * durationBreak);
-        playSound();
+       
     },
-    [number, sets, speed, durationBreak, playSound]
+    [number, sets, speed, durationBreak]
   );
+
+  // creating an effect to play sound when duration changes
+  useEffect(function () {
+    const playSound = function () {
+    if (!allowSound) return;
+    const sound = new Audio(clickSound);
+    sound.play();
+  };
+  playSound();
+
+  },[duration, allowSound]);
 
   const mins = Math.floor(duration);
   const seconds = (duration - mins) * 60;
 
   function handleInc() {
     setDuration((duration) => Math.floor(duration + 1));
-    playSound();
+    // playSound();
   }
 
   function handleDec() {
     setDuration((duration) => Math.ceil(duration - 1));
-    playSound();
+    // playSound();
   }
 
 
