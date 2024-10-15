@@ -5,7 +5,10 @@
     "es2020": true
   },
   "extends": [
-    "react-app"
+    "react-app",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier"
   ],
   "ignorePatterns": ["dist", ".eslintrc.cjs"],
   "parserOptions": {
@@ -24,6 +27,7 @@
       {
         "allowConstantExport": true
       }
-    ]
+    ],
+    "semi": ["error", "always"] // Add this line to enforce semicolons
   }
 }
