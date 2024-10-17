@@ -6,7 +6,7 @@ import CreateCustomer from "./features/customers/CreateCustomer";
 import Customer from "./features/customers/Customer";
 
 function App() {
-  const customer = useSelector((state) => state.customer);  
+  const customer = useSelector((store) => store.customer);  
 
   const fullName = customer.fullName;
   // if (customerName) {
