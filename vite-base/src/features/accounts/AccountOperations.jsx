@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deposit, requestLoan, withdraw } from "./accountSlice";
 
 function AccountOperations() {
   const [depositAmount, setDepositAmount] = useState("");
@@ -9,13 +11,57 @@ function AccountOperations() {
   const [loanPurpose, setLoanPurpose] = useState("");
   const [currency, setCurrency] = useState("USD");
 
-  function handleDeposit() {}
+  const dispatch = useDispatch();
+  const account = useSelector((state) => state.account);
+  // console.log('account', account);
 
-  function handleWithdrawal() {}
+  function handleDeposit() {
+    if (!depositAmount) {
+      // alert("Please fill in all fields");
+      return;
+      
+    }
+    dispatch(deposit(depositAmount));
+    setDepositAmount("");
 
-  function handleRequestLoan() {}
+  }
 
-  function handlePayLoan() {}
+  function handleWithdrawal() {
+    if (!withdrawalAmount) {
+      // alert("Please fill in all fields");
+      return;
+    } else if (withdrawalAmount > account.balance) {
+      // alert("Insufficient funds");
+      return;
+    }
+    dispatch(withdraw(withdrawalAmount));
+    setWithdrawalAmount("");
+  }
+
+  function handleRequestLoan() {
+    if (!loanAmount || !loanPurpose) {
+      // alert("Please fill in all fields");
+      return;
+    }
+    dispatch(requestLoan(loanAmount, loanPurpose));
+    setLoanAmount("");
+    setLoanPurpose("");
+  }
+
+  function handlePayLoan() {
+    if (account.loan === 0) {
+      alert("No loan to pay");
+      return;
+      
+    } else if (account.loan > account.balance) {
+      alert("Insufficient funds to pay loan");
+      return;
+    }
+    dispatch({ type: "account/payLoan" });
+    setLoanAmount("");
+    setLoanPurpose("");
+
+  }
 
   return (
     <div>
@@ -69,7 +115,7 @@ function AccountOperations() {
         </div>
 
         <div>
-          <span>Pay back $X</span>
+          <span>Pay back ${account.loan}</span>
           <button onClick={handlePayLoan}>Pay loan</button>
         </div>
       </div>

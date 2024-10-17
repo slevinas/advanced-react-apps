@@ -21,7 +21,7 @@ export default function accountReducer(state = initialStateAccount, action) {
     case 'account/requestLoan':
       return {
         ...state,
-        loan: action.payload,
+        loan: action.payload.amount,
         loanPurpose: action.payload.loanPurpose,
         balance: state.balance + action.payload.amount
       };
