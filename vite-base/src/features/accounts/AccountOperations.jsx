@@ -12,8 +12,11 @@ function AccountOperations() {
   const [currency, setCurrency] = useState("USD");
 
   const dispatch = useDispatch();
-  const account = useSelector((store) => store.account);
-  // console.log('account', account);
+  const { isLoading, balance, loan} = useSelector((store) => store.account);
+  
+  console.log(balance);
+ 
+ 
 
   function handleDeposit() {
     if (!depositAmount) {
@@ -22,8 +25,12 @@ function AccountOperations() {
       
     }
     dispatch(deposit(depositAmount, currency));
+    // console.log('depositAmount');
+    // console.log(depositAmount);
+    // dispatch(deposit(depositAmount));
+
     setDepositAmount("");
-    setCurrency("");
+    setCurrency("USD");
 
   }
 
@@ -31,11 +38,12 @@ function AccountOperations() {
     if (!withdrawalAmount) {
       // alert("Please fill in all fields");
       return;
-    } else if (withdrawalAmount > account.balance) {
+    } else if (withdrawalAmount > balance) {
       // alert("Insufficient funds");
       return;
     }
     dispatch(withdraw(withdrawalAmount));
+    withdraw(withdrawalAmount);
     setWithdrawalAmount("");
   }
 
@@ -45,16 +53,17 @@ function AccountOperations() {
       return;
     }
     dispatch(requestLoan(loanAmount, loanPurpose));
+    requestLoan(loanAmount, loanPurpose);
     setLoanAmount("");
     setLoanPurpose("");
   }
 
   function handlePayLoan() {
-    if (account.loan === 0) {
+    if (loan === 0) {
       alert("No loan to pay");
       return;
       
-    } else if (account.loan > account.balance) {
+    } else if (loan > balance) {
       alert("Insufficient funds to pay loan");
       return;
     }
@@ -84,7 +93,8 @@ function AccountOperations() {
             <option value="GBP">British Pound</option>
           </select>
 
-          <button onClick={handleDeposit}>Deposit {depositAmount}</button>
+          <button onClick={handleDeposit} disabled={isLoading}>
+            {isLoading ? "Converting..." : `Deposit ${depositAmount}`}</button>
         </div>
 
         <div>
@@ -114,9 +124,9 @@ function AccountOperations() {
           />
           <button onClick={handleRequestLoan}>Request loan</button>
         </div>
-        {account.loan > 0 && (
+        {loan > 0 && (
           <div>
-            <span>Pay back ${account.loan} ({account.loanPurpose})</span>
+            <span>Pay back ${loan} ({loanPurpose})</span>
             <button onClick={handlePayLoan}>Pay loan</button>
           </div>
         )}
